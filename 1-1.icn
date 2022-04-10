@@ -1,0 +1,32 @@
+# 
+# Problem 1-1
+#
+# Modify the procedure locate(s) so that it produces
+# a count of the number of lines that are written but
+# fails if no lines are written.
+#
+#   procedure locate(s)
+#       lineno := 0
+#       while line := read() do {
+#           lineno := lineno + 1
+#           if find(s, line) then write(lineno, ": ", line)
+#       }
+#   end
+#
+
+procedure locate(s)
+    lineno := 0
+    count := 0
+    while line := read() do {
+        lineno := lineno + 1
+        if find(s, line) then {
+            count := count + 1
+            write(lineno, ": ", line)
+        }
+    }
+    if count > 0 then write("Total count: ", count) else fail
+end
+
+procedure main()
+    locate("h")
+end
