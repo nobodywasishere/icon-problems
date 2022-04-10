@@ -1,0 +1,17 @@
+# Write a procedure nest() that succeeds if the input file contains only properly nested occurrences of braces but fails otherwise. For simplicity, assume that there is at most one occurrence of a brace on any one line.
+
+procedure nest()
+    c := 0
+    while line := read() do {
+        if find('{', line) then {
+            c +:= 1
+        } else if find('}', line) then {
+            c -:= 1
+        }
+    }
+    if (c = 0) then return else fail
+end
+
+procedure main()
+    if not nest() then write("nesting failed")
+end

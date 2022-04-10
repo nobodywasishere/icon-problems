@@ -1,0 +1,14 @@
+# Write a procedure skipto(s) that read and discards input lines until a line beginning with the string s is found, returning this line but failing if no such line is found
+
+procedure skipto(s)
+    found := 0
+    while line := read() do {
+        if match(s, line) then { found := 1 }
+        if found = 1 then { write(line) }
+    }
+    if found = 0 then fail
+end
+
+procedure main()
+    skipto("begin")
+end

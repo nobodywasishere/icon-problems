@@ -1,0 +1,13 @@
+# Write a procedure both(s1, s2) that generates those input lines that contain both strings s1 and s2
+
+procedure both(s1, s2)
+    while line := read() do {
+        if find(s1, line) & find(s2, line) then {
+            write(line)
+        }
+    }
+end
+
+procedure main()
+    both('a', 'b')
+end

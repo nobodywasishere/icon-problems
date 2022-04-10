@@ -1,0 +1,14 @@
+# Write a procedure exor(s1, s2) that generates those input lines that contain either of the strings s1 or s2, but not both
+
+procedure exor(s1, s2)
+    while line := read() do {
+        if (find(s1, line) & (not find(s2, line))) |
+           ((not find(s1, line)) & find(s2, line)) then {
+            write(line)
+        }
+    }
+end
+
+procedure main()
+    exor('a', 'b')
+end

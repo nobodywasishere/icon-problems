@@ -1,0 +1,15 @@
+# Write a program that copies the input file to the output file, but omitting the even-numbered lines
+
+procedure skipEven()
+    lineno := 0
+    while line := read() do {
+        if (lineno % 2) == 1 then {
+            write(line)
+        }
+        lineno +:= 1
+    }
+end
+
+procedure main()
+    skipEven()
+end

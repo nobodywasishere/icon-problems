@@ -1,0 +1,13 @@
+# Write a procedure omit(s) that copies the input file to the output file, omitting the lines that contain the string s
+
+procedure omit(s)
+    while line := read() do {
+        if not find(s, line) then {
+            write(line)
+        }
+    }
+end
+
+procedure main()
+    omit("cheese")
+end 

@@ -2,7 +2,7 @@
 .PHONY: clean
 
 %:
-	unicon $@.icn -o $@.out
+	unicon -C $@.icn -o $@.out
 
 clean:
 	-@rm *.out *.u

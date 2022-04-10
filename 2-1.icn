@@ -1,0 +1,10 @@
+# Write a program that writes only the last line of the input file
+
+procedure lastLine()
+    while line := read() do {}
+    write(line)
+end
+
+procedure main() 
+    lastLine()
+end

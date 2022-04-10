@@ -1,0 +1,12 @@
+# Write a procedure first(i) that copies the first i lines of the input file to the output file
+
+procedure first(i)
+    while line := read() do {
+        if i > 0 then write(line)
+        i -:= 1
+    }
+end
+
+procedure main()
+    first(5)
+end
