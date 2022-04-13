@@ -1,0 +1,21 @@
+# Write a procedure selwords(n,c) that generates all n-letter words in the input file that contain at least one character in the cset c.
+
+procedure selwords(n, c)
+    while line := read() do {
+        line ? {
+            while tab(upto(&letters)) do {
+                len := many(&letters) - &pos
+                word := tab(many(&letters))
+                if (len = n) & (upto(c, word)) then {
+                    suspend word
+                }
+            }
+        }
+    }
+end
+
+procedure main()
+    every i := selwords(3, 'cd') do {
+        write(i)
+    }
+end

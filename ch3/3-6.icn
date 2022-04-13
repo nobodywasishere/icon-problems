@@ -1,0 +1,19 @@
+# Write a procedure strip(s) that strips off any outer parenthesis in a parentesis-balanced string. For example, strip("((a+b))") should produce "a+b"
+
+procedure strip(s)
+    while s ? {
+        ="(" & 
+        t := tab(bal(')')) &
+        pos(-1) &
+        s := t
+    }
+    return s
+end
+
+procedure main()
+    if strip("((a+b))") == "a+b" then {
+        write("Passed")
+    } else {
+        write("Failed")
+    }
+end

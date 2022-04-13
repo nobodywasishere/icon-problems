@@ -6,4 +6,4 @@
 	./$@.out
 
 clean:
-	-@rm *.out *.u
+	-@rm *.out *.u *.c *.h

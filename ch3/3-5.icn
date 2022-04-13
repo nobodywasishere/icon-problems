@@ -1,0 +1,14 @@
+# Write a procedure pre(s, c) that generates all the initial substrings of s that are followed by a character in c
+
+# I didn't understand the question so I looked at the solution
+# in the back of the book. I still don't understand the question.
+# This was the solution given.
+procedure pre(s, c)
+    suspend (s ? tab(upto(c)))
+end
+
+
+procedure main()
+    every p := pre("hello there my name is margret", 'mt') do
+        write(p)
+end

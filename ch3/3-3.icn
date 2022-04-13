@@ -1,0 +1,13 @@
+# Write a procedure cwords(c) that generates only those words in the input file that contain a character in the cset c
+
+procedure cwords(c)
+    while line := read() do {
+        if any(c, line) then {
+            write(line)
+        }
+    }
+end
+
+procedure main()
+    cwords('abcd')
+end

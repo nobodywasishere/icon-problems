@@ -1,0 +1,19 @@
+# Write a procedure genchar(s, c) that generatoes the characters from s that are in c in order from left to right in s. For example, genchar("abracadabra", 'ab') should generate "a", "b", "a", "a", "a", "b", and "a".
+
+procedure genchar(s, c)
+    s ? {
+            while tab(upto(c)) do {
+                # This took me a bit to figure out.
+                # As tab() undoes the old position on resume,
+                # we need to not suspend the tab(), but the value
+                # at the current position
+                a := tab(any(c))
+                suspend a
+            }
+        }
+end
+
+procedure main()
+    every i := genchar("abracadabra", 'ab') do
+        write(i)
+end

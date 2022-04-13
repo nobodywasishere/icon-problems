@@ -1,0 +1,18 @@
+# Write a procedure swords(s) that generates only those words in the input file that contain the substring s
+
+procedure swords(s)
+    while line := read() do {
+        line ? {
+            while tab(upto(&letters)) do {
+                word := tab(many(&letters))
+                if word ? find(s) then suspend word
+            }
+        }
+    }
+end
+
+procedure main()
+    every i := swords("hello") do {
+        write(i)
+    }
+end
