@@ -1,0 +1,25 @@
+# Write a procedure that enciphers the input file by using a simple substitution cipher. Write a corresponding procedure that deciphers the results
+
+procedure enc(cypher)
+    o := ""
+    while line := read() do {
+        o ||:= map(line, &letters || " " || &digits, cypher)
+    }
+    return o
+end
+
+procedure dec(cypher)
+    o := ""
+    while line := read() do {
+        o ||:= map(line, cypher, &letters || " " || &digits)
+    }
+    return o
+end
+
+procedure main(argv)
+    cypher := "NOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz 0123456789ABCDEFGHIJKLM"
+    if argv[1] == "enc" then
+        write("Encoded: ", enc(cypher))
+    else
+        write("Decoded: ", dec(cypher))
+end

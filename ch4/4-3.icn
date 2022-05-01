@@ -1,0 +1,17 @@
+# Write a procedure space(s) that produces a string consisting of the characters in s interspersed with blanks. For example,
+#
+#   space("Hello world")
+#
+# should produce "H e l l o   w o r l d"
+
+procedure space(s, b)
+    if /b then b := " "
+    o := ""
+    every c := !s do o ||:= (c || b)
+    return o[1+:*o-1] # Remove the last char
+end
+
+procedure main()
+    write(space("Hello world"))
+    write(space("Hello world", "-"))
+end

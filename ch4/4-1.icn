@@ -1,0 +1,9 @@
+# Write a program that determines the number of different characters that occur in the input file
+
+procedure main()
+    chars := ''
+    while line := read() do {
+        chars ++:= line
+    }
+    write(*chars)
+end

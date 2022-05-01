@@ -1,0 +1,19 @@
+# Write a procedure delete(s, c) that produces a string in which all characters in c that occur in s are deleted. For example,
+#
+#   delete("becomes", 'aeiou')
+#
+# should produce "bcms"
+
+procedure deletec(s, c)
+    o := ""
+    every i := !s do {
+        if not any(c, i) then {
+            o ||:= i
+        }
+    }
+    return o
+end
+
+procedure main()
+    write(deletec("becomes", 'aeiou'))
+end

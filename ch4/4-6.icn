@@ -1,0 +1,50 @@
+# Write a program that produces a weight conversion table consisting of the equivalent values of pounds, ounces, kilograms, and grams for weights from 1 to 10 pounds in increments of one-tenth of a pound
+
+# Went a step further and rounded stuff off
+
+procedure lb2kg(lb)
+    return lb/2.204623
+end
+
+procedure lb2gram(lb)
+    return lb*453.5924
+end
+
+procedure lb2oz(lb)
+    return lb*16
+end
+
+# rounds i1 to i2 decimal points
+procedure round(i1, i2)
+    s := string(i1)
+    pt := 0
+    o := ""
+    every c := !s do {
+        if c == "." then {
+            pt := 1
+            o ||:= "."
+            next
+        }
+        if (pt <= i2) then o ||:= c
+        if (pt > 0) then pt +:= 1
+    }
+    while pt <= i2 do {
+        o ||:= "0"
+        pt +:= 1
+    }
+    return o
+end
+
+procedure main()
+    sp := 12
+    write(center("lb", sp) || " | " || center("oz", sp) || " | " || center("kg", sp) || " | " || center("gram", sp))
+    write(repl("-", sp*4 + 9))
+    every i := (1 to 10 by 0.25) do {
+        write(
+            right(round(i, 5), sp) || " | " || 
+            right(round(lb2oz(i), 5), sp) || " | " || 
+            right(round(lb2kg(i), 5), sp) || " | " || 
+            right(round(lb2gram(i), 5), sp)
+        )
+    }
+end

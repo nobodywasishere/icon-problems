@@ -1,0 +1,73 @@
+# Write a procedure that does what the function image() does for strings and csets
+
+procedure hex(i)
+    # integer to hexidecimal string
+    if i = 0 then return "0"
+    o := ""
+    j := 1
+    while (i > 0) do {
+        r := (i % (16^j))
+        i := (i - r)
+        rd := r/(16^(j-1))
+        if (rd <= 9) then {
+            o := string(rd) || o
+        } else {
+            o := char(rd + 87) || o
+        }
+        j +:= 1
+    }
+    return o
+end
+
+procedure newimage(s)
+    if s == &ascii   then return "&ascii"
+    if s == &cset    then return "&cset"
+    if s == &digits  then return "&digits"
+    if s == &lcase   then return "&lcase"
+    if s == &letters then return "&letters"
+    if s == &ucase   then return "&ucase"
+    if type(s) == "string" then o := "\""
+    if type(s) == "cset" then o := "\'"
+    every c := !s do {
+        if c == "\"" then o ||:= "\\\""
+        else if c == "\'" then o ||:= "'"
+        else if c == "\\" then o ||:= "\\\\"
+        else if (c == char(8)) then o ||:= "\\b"
+        else if (c == char(9)) then o ||:= "\\t"
+        else if (c == char(10)) then o ||:= "\\n"
+        else if (c == char(11)) then o ||:= "\\v"
+        else if (c == char(12)) then o ||:= "\\f"
+        else if (c == char(13)) then o ||:= "\\r"
+        else if (c == char(27)) then o ||:= "\\e"
+        else if (c == char(127)) then o ||:= "\\d"
+        else if ((c <<= char(31)) | c >>= char(128)) then {
+            o ||:= ("\\x" || right(hex(ord(c)), 2, "0"))
+        }
+        else o ||:= c
+    }
+    if type(s) == "string" then o ||:= "\""
+    if type(s) == "cset" then o ||:= "\'"
+    return o
+end
+
+procedure main()
+    every i := 0 to 255 do {
+        a := image("This is a test" || char(i))
+        b := newimage("This is a test" || char(i))
+        if a ~== b then {
+            write(i, " failed for ", a, " ", b)
+        }
+    }
+    write(image('hello there'))
+    write(newimage('hello there'))
+    write(image(&ascii))
+    write(newimage(&ascii))
+    write(image(&cset))
+    write(newimage(&cset))
+    write(image(&digits))
+    write(newimage(&digits))
+    write(image(&lcase))
+    write(newimage(&lcase))
+    write(image(&letters))
+    write(newimage(&letters))
+end

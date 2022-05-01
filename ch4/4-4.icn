@@ -1,0 +1,15 @@
+# Write a procedure rotate(s, i) that produces the result of rotating the value of s left by i characters. For example,
+#
+#   rotate("abcde", 3)
+#
+# should produce "deabc".
+
+procedure rotatel(s, i)
+    return s[i+1:*s+1] || s[1:i+1]
+end
+
+procedure main()
+    write(rotatel("abcde", 3))
+    write(rotatel("<<-->>", 5))
+    write(rotatel("rotate right?", -6))
+end

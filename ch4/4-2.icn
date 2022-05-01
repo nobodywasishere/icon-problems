@@ -1,0 +1,10 @@
+# Write a procedure that determines whether a program is running on an ASCII or EBCDIC system
+
+# This isn't particularly useful since with modern systems all being unicode, which was based on ascii, this no longer applies
+procedure main()
+    if "a" >> "1" then {
+        write("ASCII System")
+    } else {
+        write("EBCDIC System")
+    }
+end
